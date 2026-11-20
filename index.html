@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Top-Up Queue</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container" id="servicePage">
+
+        <h1>GAME TOP-UP QUEUE</h1>
+        <p class="subtitle">Select your game and enter your information.</p>
+
+        <div class="box">
+            <h2>Select Your Game</h2>
+            <p>Choose a game:</p>
+
+            <p id="errorMessage"></p>
+
+            <div class="services">
+                <button class="service-btn" data-service="Mobile Legends: Bang Bang">Mobile Legends</button>
+                <button class="service-btn" data-service="Call of Duty: Mobile">Call of Duty Mobile</button>
+                <button class="service-btn" data-service="PUBG Mobile">PUBG Mobile</button>
+                <button class="service-btn" data-service="Honor of Kings">Honor of Kings</button>
+            </div>
+        </div>
+
+        <div class="box">
+            <h2>Customer Information</h2>
+
+            <form id="queueForm">
+
+                <label>Full Name</label>
+                <input type="text" id="customerName" placeholder="Enter your name" required>
+
+                <label>Email</label>
+                <input type="email" id="customerEmail" placeholder="Enter your email" required>
+
+                <label>Game ID</label>
+                <input type="text" id="gameId" placeholder="Enter your Game ID" required>
+
+                <label>Server ID</label>
+                <input type="text" id="serverId" placeholder="Enter your Server ID" required>
+
+                <button type="submit" class="get-btn">GET QUEUE NUMBER</button>
+
+            </form>
+        </div>
+
+    </div>
+
+    <div class="container hidden" id="ticketPage">
+
+        <h1>YOUR GAME TOP-UP IS NOW PROCESSING</h1>
+        <p class="subtitle">Please wait for completion of order!</p>
+
+        <div class="box">
+            <h2>Queue Number</h2>
+            <div class="number" id="myNumber">---</div>
+
+            <h3>Queue Status</h3>
+            <div class="status waiting" id="myStatus">Waiting</div>
+        </div>
+
+        <div class="box">
+            <h2>Customer Details</h2>
+
+            <p>Name: <span id="myName">---</span></p>
+            <p>Email: <span id="myEmail">---</span></p>
+            <p>Game: <span id="myService">---</span></p>
+            <p>Game ID: <span id="myGameId">---</span></p>
+            <p>Server ID: <span id="myServerId">---</span></p>
+
+            <p id="message">Please wait for your queue to be processed.</p>
+        </div>
+
+        <button class="get-btn" onclick="showServices()">BACK</button>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

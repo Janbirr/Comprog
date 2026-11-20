@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Queue Ticket</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container" id="ticketPage">
+    <header class="page-header">
+      <span class="eyebrow">REQUEST RECEIVED</span>
+      <h1>YOUR QUEUE TICKET</h1>
+      <p class="subtitle">Keep this number and wait for your turn.</p>
+    </header>
+    <section class="box ticket-number-box">
+      <p class="ticket-label">YOUR QUEUE NUMBER</p>
+      <div class="number" id="myNumber">---</div>
+      <div class="status waiting" id="myStatus">Waiting</div>
+    </section>
+    <section class="box">
+      <h2>Request details</h2>
+      <div class="ticket-details">
+        <div><span>Customer</span><strong id="myName">---</strong></div>
+        <div><span>Email</span><strong id="myEmail">---</strong></div>
+        <div><span>Selected game</span><strong id="myService">---</strong></div>
+        <div><span>Game ID</span><strong id="myGameId">---</strong></div>
+        <div><span>Server ID</span><strong id="myServerId">---</strong></div>
+      </div>
+      <p class="ticket-message" id="message">Your ticket details will appear here after a queue is created.</p>
+    </section>
+    <a class="get-btn link-button" href="index.html">BACK TO SERVICES</a>
+  </main>
+  <script>
+    const savedQueues = JSON.parse(localStorage.getItem("queues") || "[]");
+    const ticket = savedQueues[savedQueues.length - 1];
+    if (ticket) {
+      document.getElementById("myNumber").textContent = ticket.number || "---";
+      document.getElementById("myName").textContent = ticket.name || "---";
+      document.getElementById("myEmail").textContent = ticket.email || "---";
+      document.getElementById("myService").textContent = ticket.service || "---";
+      document.getElementById("myGameId").textContent = ticket.gameId || "---";
+      document.getElementById("myServerId").textContent = ticket.serverId || "---";
+      document.getElementById("myStatus").textContent = ticket.status || "Waiting";
+    } else {
+      document.getElementById("message").textContent = "No saved queue ticket was found on this device.";
+    }
+  </script>
+  <style>.link-button { display:block; text-align:center; text-decoration:none; }</style>
+</body>
+</html>
